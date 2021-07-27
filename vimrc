@@ -1,11 +1,7 @@
-
-
-
 " Pluggins ==================================================
 
 " Cscope integrating
 source ~/.vim/cscope.vim
-
 
 " Git integrating
 source ~/.vim/git.vim
@@ -13,12 +9,17 @@ source ~/.vim/git.vim
 
 
 
-" Statusline config =========================================
+" Vim configuration ==========================================
+" Statusline config
 source ~/.vim/statusline.vim
 
-" Tabline config ===========================================
+" Tabline config
 source ~/.vim/tabline.vim
 
-" Basic set command =========================================
+" Basic set command
 source ~/.vim/basic.vim
+
+
+" Key mapping ================================================
+
 

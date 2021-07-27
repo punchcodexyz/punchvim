@@ -34,9 +34,6 @@ hi User5 ctermfg=black ctermbg=cyan
 hi User6 ctermfg=114 ctermbg=0
 hi User7 ctermfg=114 ctermbg=0
 
-" Enable detecting the filetype
-filetype detect
-
 " Enable the statusline
 set laststatus=2
 
@@ -47,7 +44,7 @@ set statusline+=%1*\[%n]											"Buffernr
 set statusline+=%2*\[%{StatuslineGit()}]							"GitBranch
 set statusline+=%3*\ %<%F\ 											"File+path
 set statusline+=%=													"Right align
-set statusline+=%4*\ %{&filetype}\									"FileType
+set statusline+=%4*\ %{&filetype}\ 									"FileType
 set statusline+=%5*\ %{''.(&fenc!=''?&fenc:&enc).''}\[%{&ff}\]		"Encoding
 set statusline+=%5*\ %=row:%l/%L									"Rownumber/total
 set statusline+=%5*\ col:%c											"Colnr

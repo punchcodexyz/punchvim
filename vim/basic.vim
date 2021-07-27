@@ -1,14 +1,22 @@
 
-" 01. Line number
+" Line number
 set number
 
-" 02. Search
+" Search
 set hlsearch
 set showmatch
 
-" 03. Tab & Indent
+" Tab & Indent
 set cindent
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 
+
+" Enable display syntax of content
+syntax on
+
+" Enable detecting the filetype
+filetype detect
+
+set mouse=
