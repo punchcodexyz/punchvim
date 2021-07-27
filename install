@@ -1,5 +1,10 @@
 #!/bin/bash
 
 # This script will install the vim config and plugins
+mkdir -p ~/.vim
+
 cp vimrc ~/.vimrc
+
+# Customized VIM config file
+cp -r vim/* ~/.vim/
 
