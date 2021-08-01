@@ -19,6 +19,8 @@ source ~/.vim/tabline.vim
 " Basic set command
 source ~/.vim/basic.vim
 
+" Themes
+"colorscheme desert
 
 " Key mapping ================================================
 

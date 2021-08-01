@@ -1,0 +1,9 @@
+# This is script to push NOS from argument 1 to argument 2
+
+lftp<<END_SCRIPT
+open sftp://10.55.2.202
+user hoanganh.bui linuxkernel8*
+cd /tftpboot/V2724GG/test/
+put $1
+bye
+END_SCRIPT

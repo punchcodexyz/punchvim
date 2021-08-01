@@ -1,0 +1,50 @@
+#!/bin/bash
+
+curr_path=`pwd`
+action=$1
+need_reset=no
+
+if [ "new" == $action ]; then
+	if [ -f $curr_path/cscope.files ]; then
+		rm -rf $curr_path/cscope.files
+	fi
+
+	touch $curr_path/cscope.files
+	for path in ${@:2}
+	do
+		echo "collecting files from $path"
+		find $path -name '*.c' -o -name '*.h' >> cscope.files
+		need_reset="yes"
+	done
+
+elif [ "add" == $action ]; then
+	if [ -f $curr_path/cscope.files ]; then
+		for path in ${@:2}
+		do
+			if grep "$path" $curr_path/cscope.files > /dev/null
+			then
+				echo "files from $path existed in database"
+			else
+				echo "adding files from $path"
+				find $path -name '*.c' -o -name '*.h' >> cscope.files
+				need_reset="yes"
+			fi
+		done
+	else
+		echo "Not found any database. Please create new one!"
+	fi
+
+elif [ "reset" == $action ]; then
+	need_reset="yes"
+fi
+
+if [ "yes" == $need_reset ]; then
+	echo "building database ..."
+	cscope -b -q
+	export CSCOPE_DB=$curr_path/cscope.out
+
+	echo "building ctags ..."
+	ctags -L cscope.files
+elif [ "no" == $need_reset ]; then
+	echo "nothing done"
+fi

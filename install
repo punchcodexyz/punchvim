@@ -1,10 +1,21 @@
 #!/bin/bash
 
+# Backup the current VIM Configuration
+rm -rf backup
+mkdir -p  backup
+cp -r ~/.vim		backup/vim
+cp -r ~/.local/bin	backup/bin
+
+cp ~/.vimrc		backup/vimrc
+cp ~/.bash_profile	backup/bash_profile
+
 # This script will install the vim config and plugins
 mkdir -p ~/.vim
+mkdir -p ~/.local/bin
 
-cp vimrc ~/.vimrc
+cp vimrc	~/.vimrc
+cp bash_profile ~/.bash_profile
 
 # Customized VIM config file
-cp -r vim/* ~/.vim/
-
+cp -r vim/*	~/.vim/
+cp -r tool/*	~/.local/bin/
