@@ -33,6 +33,6 @@ elif [ "$1" == "recover" ]; then
 
 else
     echo "How to use:"
-    echo "    ./install [install|recover]"
+    echo "    ./setup.sh [install|recover]"
 fi
 

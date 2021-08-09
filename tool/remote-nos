@@ -1,0 +1,25 @@
+# This is script to push NOS from argument 1 to argument 2
+
+CMD=$1
+NOSFILE=$2
+RPATH=$3
+LPATH="/tftpboot/"
+
+SERVERIP="10.55.2.202"
+PROTOCOL="sftp"
+
+USER=hoanganh.bui
+PASSWD="linuxkernel8*"
+
+if [ $1 == "help" ]; then
+    echo "Guide: "
+    echo "    remote-nos [get|put] [nos_name] [remote-path]"
+else
+lftp $PROTOCOL://$SERVERIP <<- END_SCRIPT
+    user $USER $PASSWD
+    lcd $LPATH
+    cd $RPATH 
+    $CMD $NOSFILE
+    bye
+END_SCRIPT
+fi
